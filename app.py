@@ -25,11 +25,11 @@ import os
 #host = config['host']
 #database = config['name']
 
-def init_connection():
-    # Carregar os segredos do arquivo st.secrets
-    db_secrets = st.secrets["postgres"]
-    # Far more compact version!
-    engine = engine.connect(**st.secrets.postgres)
+
+# Carregar os segredos do arquivo st.secrets
+db_secrets = st.secrets["postgres"]
+# Far more compact version!
+engine = engine.connect(**st.secrets.postgres)
 
 # Criar a engine de conexão
 #engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}')
@@ -43,7 +43,7 @@ def get_table_download_link(df):
 
 
 # Carregar modelo
-model = joblib.load('/home/felipe/Projeto/Loan_Approval/Arquivos_pickle/model3_hiperparameters.pkl')
+model = joblib.load('/Arquivos_pickle/model3_hiperparameters.pkl')
 
 st.title("PROJETO MACHINE LEARNING END TO END")
 st.markdown("Simulação de Classificação de Crédito, é um projeto para aprendizado no curso Machine Learning End to End - Youtube")
