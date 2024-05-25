@@ -48,7 +48,8 @@ def get_table_download_link(df):
 
 
 # Carregar modelo
-model = joblib.load('/Arquivos_pickle/model3_hiperparameters.pkl')
+arquivo = open('/Arquivos_pickle/model3_hiperparameters.pkl','rb')
+model = joblib.load(arquivo)
 
 st.title("PROJETO MACHINE LEARNING END TO END")
 st.markdown("Simulação de Classificação de Crédito, é um projeto para aprendizado no curso Machine Learning End to End - Youtube")
