@@ -25,20 +25,20 @@ import os
 #host = config['host']
 #database = config['name']
 
-def get_engine():
-  try:
-    # Use f-strings for secure secret access
-    engine = create_engine(
-        f"postgresql://{st.secrets['database.username']}"
-        f":{st.secrets['database.password']}"
-        f"@{st.secrets['database.hostname']}"
-        f":{st.secrets['database.port']}"
-        f"/{st.secrets['database.database']}"
+def init_connection():
+    # Carregar os segredos do arquivo st.secrets
+    db_secrets = st.secrets["postgres"]
+
+    # Formatar a URL de conexão
+    connection_string = (
+        f"postgresql+psycopg2://{db_secrets['user']}:{db_secrets['password']}@"
+        f"{db_secrets['host']}:{db_secrets['port']}/{db_secrets['dbname']}"
     )
+
+    # Criar o engine de conexão
+    engine = create_engine(connection_string)
+    
     return engine
-  except Exception as e:
-    st.error(f"Error connecting to database: {e}")
-    return None
 
 # Criar a engine de conexão
 #engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}')
