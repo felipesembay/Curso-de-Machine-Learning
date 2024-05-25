@@ -1,0 +1,24 @@
+2024-05-23 20:27:08,676:WARNING:/home/felipe/anaconda3/lib/python3.8/site-packages/dask/dataframe/utils.py:369: FutureWarning:
+
+pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+
+
+2024-05-23 20:27:08,676:WARNING:/home/felipe/anaconda3/lib/python3.8/site-packages/dask/dataframe/utils.py:369: FutureWarning:
+
+pandas.Float64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+
+
+2024-05-23 20:27:08,676:WARNING:/home/felipe/anaconda3/lib/python3.8/site-packages/dask/dataframe/utils.py:369: FutureWarning:
+
+pandas.UInt64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+
+
+2024-05-23 20:27:08,909:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-05-23 20:27:08,909:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-05-23 20:27:08,909:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-05-23 20:27:08,909:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2024-05-23 20:27:09,039:INFO:Soft dependency imported: prophet: 1.1.5
