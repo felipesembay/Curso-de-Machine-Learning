@@ -29,7 +29,7 @@ def init_connection():
     db_secrets = st.secrets["postgres"]
     connection_string = (
         f"postgresql+psycopg2://{db_secrets['user']}:{db_secrets['password']}@"
-        f"{db_secrets['host']}:{db_secrets['port']}/{db_secrets['dbname']}"
+        f"{db_secrets['host']}:{db_secrets['port']}/{db_secrets['name']}"
     )
     engine = create_engine(connection_string)
     return engine
