@@ -48,7 +48,7 @@ def get_table_download_link(df):
 
 
 # Carregar modelo
-arquivo = open('model3_hiperparameters.pkl','rb')
+arquivo = open('model3_hiperparameters.pkl')
 model = joblib.load(arquivo)
 
 st.title("PROJETO MACHINE LEARNING END TO END")
