@@ -26,9 +26,7 @@ import os
 #database = config['name']
 
 # Função para inicializar a conexão com o banco de dados
-
-db_secrets = st.secrets["postgres"]
-engine = my_db.connect(**st.secrets.db_credentials)
+conn = st.connection("postgres", type="sql", autocommit=True)
 
 # Criar a engine de conexão
 #engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}')
@@ -175,8 +173,8 @@ if selected_option == "Lançar manulamente":
             df_result = pd.DataFrame([result_data])
 
             # Inserir dados no banco
-            #df_result.to_sql('bank_model', con=engine, if_exists='append', index=False)
-            df_result.to_sql('bank_model', engine, schema='public', index=False, if_exists='append')
+            #df_result.to_sql('bank_model', engine, schema='public', index=False, if_exists='append')
+            df_result.to_sql('bank_model', conn, schema='public', index=False, if_exists='append')
             st.success("Resultado salvo no banco de dados com sucesso!")
 
 elif selected_option == "Subir via CSV":
