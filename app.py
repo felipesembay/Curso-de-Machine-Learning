@@ -184,7 +184,7 @@ if selected_option == "Lançar manulamente":
 
             # Inserir dados no banco
             #df_result.to_sql('bank_model', engine, schema='public', index=False, if_exists='append')
-            df_result.to_sql('bank_model', conn, schema='public', index=False, if_exists='append')
+            df_result.to_sql('bank_model', engine, schema='public', index=False, if_exists='append')
             st.success("Resultado salvo no banco de dados com sucesso!")
 
 elif selected_option == "Subir via CSV":
