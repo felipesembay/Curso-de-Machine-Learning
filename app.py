@@ -28,21 +28,12 @@ import os
 def init_connection():
     # Carregar os segredos do arquivo st.secrets
     db_secrets = st.secrets["postgres"]
-
-    # Formatar a URL de conexão
-    connection_string = (
-        f"postgresql+psycopg2://{db_secrets['user']}:{db_secrets['password']}@"
-        f"{db_secrets['host']}:{db_secrets['port']}/{db_secrets['dbname']}"
-    )
-
-    # Criar o engine de conexão
-    engine = create_engine(connection_string)
-    
-    return engine
+    # Far more compact version!
+    engine = engine.connect(**st.secrets.postgres)
 
 # Criar a engine de conexão
 #engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}')
-engine = create_engine(f'postgresql+psycopg2://{username}:{password}@{host}/{database}')
+#engine = create_engine(f'postgresql+psycopg2://{username}:{password}@{host}/{database}')
 
 def get_table_download_link(df):
     """Generates a link allowing the data in a given panda dataframe to be downloaded"""
