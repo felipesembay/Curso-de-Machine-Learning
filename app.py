@@ -26,17 +26,9 @@ import os
 #database = config['name']
 
 # Função para inicializar a conexão com o banco de dados
-def init_connection():
-    db_secrets = st.secrets["postgres"]
-    connection_string = (
-        f"postgresql+psycopg2://{db_secrets['user']}:{db_secrets['password']}@"
-        f"{db_secrets['host']}:{db_secrets['port']}/{db_secrets['dbname']}"
-    )
-    engine = create_engine(connection_string)
-    return engine
 
-# Inicializar a conexão
-engine = init_connection()
+db_secrets = st.secrets["postgres"]
+engine = my_db.connect(**st.secrets.db_credentials)
 
 # Criar a engine de conexão
 #engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}')
