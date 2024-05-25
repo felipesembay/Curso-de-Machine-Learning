@@ -35,6 +35,11 @@ def init_connection():
     connection_string = (
         f"postgresql+psycopg2://{db_secrets['user']}:{db_secrets['password']}@"
         f"{db_secrets['host']}:{db_secrets['port']}/{db_secrets['dbname']}")
+        engine = create_engine(connection_string)
+        return engine
+
+# Inicializar a conexão
+engine = init_connection()
 
 # Criar a engine de conexão
 #engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}')
@@ -48,8 +53,8 @@ def get_table_download_link(df):
 
 
 # Carregar modelo
-arquivo = open('model3_hiperparameters.pkl')
-model = joblib.load(arquivo)
+with open('model3_hiperparameters.pkl', 'rb') as arquivo:
+    model = joblib.load(arquivo)
 
 st.title("PROJETO MACHINE LEARNING END TO END")
 st.markdown("Simulação de Classificação de Crédito, é um projeto para aprendizado no curso Machine Learning End to End - Youtube")
