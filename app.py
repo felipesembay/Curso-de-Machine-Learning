@@ -25,18 +25,15 @@ import os
 #host = config['host']
 #database = config['name']
 
-
-# Carregar os segredos do arquivo st.secrets
+# Função para inicializar a conexão com o banco de dados
 def init_connection():
-    # Carregar os segredos do arquivo st.secrets
     db_secrets = st.secrets["postgres"]
-
-    # Formatar a URL de conexão
     connection_string = (
         f"postgresql+psycopg2://{db_secrets['user']}:{db_secrets['password']}@"
-        f"{db_secrets['host']}:{db_secrets['port']}/{db_secrets['dbname']}")
-        engine = create_engine(connection_string)
-        return engine
+        f"{db_secrets['host']}:{db_secrets['port']}/{db_secrets['dbname']}"
+    )
+    engine = create_engine(connection_string)
+    return engine
 
 # Inicializar a conexão
 engine = init_connection()
