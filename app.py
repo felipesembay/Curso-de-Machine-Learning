@@ -25,8 +25,11 @@ import os
 #host = config['host']
 #database = config['name']
 
-# Função para inicializar a conexão com o banco de dados
-conn = st.connection("postgres", type="sql", autocommit=True)
+def init_connection():
+    return psycopg2.connect(**st.secrets["postgres"])
+
+engine = init_connection()
+
 
 # Criar a engine de conexão
 #engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}')
