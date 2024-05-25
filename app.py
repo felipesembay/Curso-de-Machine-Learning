@@ -27,9 +27,14 @@ import os
 
 
 # Carregar os segredos do arquivo st.secrets
-db_secrets = st.secrets["postgres"]
-# Far more compact version!
-engine = engine.connect(**st.secrets.postgres)
+def init_connection():
+    # Carregar os segredos do arquivo st.secrets
+    db_secrets = st.secrets["postgres"]
+
+    # Formatar a URL de conexão
+    connection_string = (
+        f"postgresql+psycopg2://{db_secrets['user']}:{db_secrets['password']}@"
+        f"{db_secrets['host']}:{db_secrets['port']}/{db_secrets['dbname']}")
 
 # Criar a engine de conexão
 #engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}')
