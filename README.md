@@ -115,13 +115,13 @@ Essa abordagem estruturada permitirá a criação de um modelo robusto e eficien
 
 ## RESULTADOS DO MODELO: 
 
-![Resultado Geral](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-25-44.png)
+![Resultado Geral](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-25-44.png)
 
 * Ao todo foram utilizados **5 Scalers** e mais 1 com os dados normais (**None**). Nesse primeiro teste, o que obteve o melhor resultado foi o **Modelo Random Forest**. Os melhores **Scalers foram:  RobustScaler e StandardScaler**. 
 * Após analisar o gráfico de **ROC AUC**, foi escolhido o scaler **StandardScaler** com um **ROC AUC** de **0.9330**, contra um ROC AUC de **0.5260**. 
-![Resultado StandardScaler](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-28-10.png)
+![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-28-10.png)
 
-![Resultado StandardScaler](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-28-29.png)
+![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-28-29.png)
 
 
 ## TRADE OFF THRESHOLD
@@ -130,16 +130,16 @@ Essa abordagem estruturada permitirá a criação de um modelo robusto e eficien
 
 * O Threshold padrão é em **0.5**. Conforme podemos ver na imagem, o nosso ponto de cruzamento ou seja equilibrio entre Precision e Recall se encontra em **0.44**. Porém queremos um modelo mais conservador na liberação dos empréstimos. Ou seja queremos um **Recall** mais elevado. Por esse motivo o Threshold que trazia o melhor **trade-off** era no ponto **0.40**
 
-![Resultado StandardScaler](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-30-42.png)
+![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-30-42.png)
 
 * Observe que com essa mudança o modelo ficou muito mais equilibrado. E a métrica de **F1 Score** teve uma melhora também. 
 
 * O próximo gráfico é uma **Análise de Trade Off** entre Precision e Recall. Com base nesse gráfico seria possível chegar num **Recall** de quase **100%** e ter uma **Precision** de cerca de **80%** de acertos. Porém isso iria gerar um grande desquilibrio. Então, mantivemos um threshold mais conservador. Apenas os 40% com menos riscos terão seus empréstimos aprovados. 
 
-![Resultado StandardScaler](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-30-56.png)
+![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-30-56.png)
 
 ## FEATURE IMPORTANCE
-![Resultado StandardScaler](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-31-12.png)
+![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-31-12.png)
 
 ### Importâncias das Features:
 
@@ -167,7 +167,7 @@ Equilíbrio das Importâncias:
 
 
 ## SHAP VALUE
-![Resultado StandardScaler](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-37-55.png)
+![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-37-55.png)
 
 ### Contribuição das Features para Cada Classe
 
@@ -194,7 +194,7 @@ Ambas têm importâncias moderadas, contribuindo mais para Class 0 do que para C
 Features como Profession e Car_Ownership mostram uma variação maior na importância entre as classes, indicando que estas podem influenciar de maneira diferente as predições dependendo da classe.
 
 ### Gráfico de Cascata
-![Resultado StandardScaler](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-38-18.png)
+![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-38-18.png)
 
 ### Fórmula da Função Softmax
 
@@ -289,16 +289,16 @@ Interpretação Contextual:
 
 Este gráfico é específico para um único exemplo. 
 
-![Resultado StandardScaler](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-38-37.png)
+![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-38-37.png)
 
 
 # OPTUNA - Tunagem do modelo
 ## Melhor Hypeparameters
-![Resultado StandardScaler](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-39-00.png)
+![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-39-00.png)
 
 
 ### Curva ROC AUC - Hyper Hypeparameters
-![Resultado StandardScaler](images_resul/Captura%20de%20tela%20de%202024-05-27%2023-39-33.png)
+![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-39-33.png)
 
 
 
