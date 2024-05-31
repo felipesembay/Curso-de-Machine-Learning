@@ -38,7 +38,7 @@ engine = init_connection()
 
 # Criar a engine de conexão
 #engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}')
-engine = create_engine(f'postgresql+psycopg2://{username}:{password}@{host}/{database}')
+#engine = create_engine(f'postgresql+psycopg2://{username}:{password}@{host}/{database}')
 
 st.title("PROJETO MACHINE LEARNING END TO END - DASHBOARD METRICAS")
 #st.markdown("Dashboard da tela referente aos clientes")
