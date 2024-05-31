@@ -119,7 +119,10 @@ Essa abordagem estruturada permitirá a criação de um modelo robusto e eficien
 
 * Ao todo foram utilizados **5 Scalers** e mais 1 com os dados normais (**None**). Nesse primeiro teste, o que obteve o melhor resultado foi o **Modelo Random Forest**. Os melhores **Scalers foram:  RobustScaler e StandardScaler**. 
 * Após analisar o gráfico de **ROC AUC**, foi escolhido o scaler **StandardScaler** com um **ROC AUC** de **0.9330**, contra um ROC AUC de **0.5260**. 
+
+
 ![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-28-10.png)
+
 
 ![Resultado StandardScaler](imagens_resultado/Captura%20de%20tela%20de%202024-05-27%2023-28-29.png)
 
