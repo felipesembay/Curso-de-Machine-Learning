@@ -13,23 +13,33 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-
 # Carregar configurações do arquivo config.toml
-config_path = os.path.join(os.path.dirname(__file__), 'config.toml')
-config = toml.load(config_path)
+#config_path = os.path.join(os.path.dirname(__file__), 'config.toml')
+#config = toml.load(config_path)
 
 # Carregar variáveis de ambiente
 # Obter as configurações do banco de dados
-config = config['database']
-username = config['user']
-password = config['password']
-host = config['host']
-database = config['name']
+#config = config['database']
+#username = config['user']
+#password = config['password']
+#host = config['host']
+#database = config['name']
+
+def init_connection():
+    db_secrets = st.secrets["postgres"]
+    connection_string = (
+        f"postgresql+psycopg2://{db_secrets['user']}:{db_secrets['password']}@"
+        f"{db_secrets['host']}:{db_secrets['port']}/{db_secrets['name']}"
+    )
+    engine = create_engine(connection_string)
+    return engine
+
+# Inicializar a conexão
+engine = init_connection()
 
 # Criar a engine de conexão
 #engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}')
-# Configuração da conexão com o banco de dados
-engine = create_engine(f'postgresql+psycopg2://{username}:{password}@{host}/{database}')
+#engine = create_engine(f'postgresql+psycopg2://{username}:{password}@{host}/{database}')
 
 st.title("PROJETO MACHINE LEARNING END TO END - DASHBOARD METRICAS")
 
